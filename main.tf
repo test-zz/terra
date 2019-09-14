@@ -1,6 +1,13 @@
 variable "project" {
   default = ""
 }
+
+variable "ssh_user" {                                                                                                                                                                                                
+}                                                                                                                                                                                                                    
+                                                                                                                                                                                                                     
+variable "ssh_filename" {                                                                                                                                                                                            
+}  
+
 provider "google" {
   project = var.project
   region  = "europe-west4"
