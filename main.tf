@@ -12,7 +12,13 @@ resource "google_compute_instance" "vm_instance" {
   machine_type            = "n1-standard-1"                                                                                                                                    
   metadata = {                                                                                                                                                                 
     ssh-keys = "${var.ssh_user}:${file("${var.ssh_filename}")}"  
-  }                                                                                                                                                                            
+  }
+
+  boot_disk {
+    initialize_params {
+      image = "ubuntu-os-cloud/ubuntu-1804-bionic-v20190813a"
+    }
+  }
 
   provisioner "file" {                                                                                                                                                         
     source      = var.script_path                                                                                                                                              
