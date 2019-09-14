@@ -1,3 +1,4 @@
+variable "project" {
   default = ""
 }
 provider "google" {
