@@ -8,4 +8,4 @@ chmod +x setup.sh
 
 ./setup.sh
 
-terraform apply -var="project=$(gcloud config get-value project)"
+terraform apply -var="project=$(gcloud config get-value project),script_path=./metadata_startup_script.sh"
