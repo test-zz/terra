@@ -2,7 +2,7 @@
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-18-04
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y xfce4 xfce4-goodies
+sudo apt install -y xfce4 xfce4-goodies expect
 sudo apt install -y tightvncserver
 
 prog=/usr/bin/vncpasswd
