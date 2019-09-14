@@ -24,6 +24,6 @@ vncserver
 git clone https://github.com/test-zz/noVNC.git
 cd noVNC
 sudo apt install -y python
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out self.pem -days 365 -subj '/CN=localhost' -nodes
+openssl req -x509 -newkey rsa:4096 -keyout self.pem -out self.pem -days 365 -subj '/CN=localhost' -nodes
 sudo ./utils/launch.sh --vnc localhost:5901 --listen 443
 #end
