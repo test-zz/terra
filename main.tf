@@ -3,10 +3,13 @@ variable "project" {
 }
 
 variable "ssh_user" {                                                                                                                                                                                                
-}                                                                                                                                                                                                                    
-                                                                                                                                                                                                                     
+}
+
 variable "ssh_filename" {                                                                                                                                                                                            
-}  
+}
+
+variable "script_path" {
+}
 
 provider "google" {
   project = var.project
