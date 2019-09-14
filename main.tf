@@ -15,7 +15,7 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
   network_interface {
-    # A default network is created for all GCP projects
+    # A default network is created for all GCP projects, but create our own
     network       = "${google_compute_network.vpc_network.self_link}"
     access_config {
     }
