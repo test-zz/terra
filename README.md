@@ -23,6 +23,8 @@ echo $PROJECT_ID
 
 gcloud compute project-info describe
 
+# can use:
+# https://jenkins-x.io/commands/jx_create_terraform/ ?
 jx create cluster gke \
   --no-tiller \
   --skip-login \
