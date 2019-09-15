@@ -22,7 +22,7 @@ resource "google_compute_instance" "vm_instance" {
   machine_type            = "n1-standard-1"                                                                                                                                    
   metadata = {                                                                                                                                                                 
     ssh-keys = "${var.ssh_user}:${file("${var.ssh_filename}")}" 
-    startup_script = "${file("${var.script_path}")}"
+    startup-script = "${file("${var.script_path}")}"
   }
 
   boot_disk {
