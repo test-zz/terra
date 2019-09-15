@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 if [ ! -f ~/.vimrc ]; then
   echo Updating .vimrc...
   touch ~/.vimrc
@@ -14,9 +15,9 @@ fi
 
 terraform init
 
-pushd '../'
-
-git clone https://github.com/dcanadillas/jenkins-x-workshop.git
-#https://github.com/cloudbees-days/jenkins-x-workshop
-
+pushd ..
+if [ ! -f jenkins-x-workshop ]; then
+  git clone https://github.com/dcanadillas/jenkins-x-workshop.git
+  #https://github.com/cloudbees-days/jenkins-x-workshop
+fi
 popd
