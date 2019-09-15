@@ -23,7 +23,11 @@ echo $PROJECT_ID
 
 gcloud compute project-info describe
 
-# can use:
+#consider:
+# --environment-git-owner test-zz
+#github user, api token, pipelines git user, api token x2
+
+# consider can use:
 # https://jenkins-x.io/commands/jx_create_terraform/ ?
 jx create cluster gke \
   --no-tiller \
