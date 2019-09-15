@@ -63,3 +63,8 @@ resource "google_compute_firewall" "terraform-network-https" {
   }
   source_ranges = ["0.0.0.0/0"]
 }
+
+output "VNC_Server_Url" {
+  value       = "https://${google_compute_instance.vm_instance.network_interface[0].access_config[0].nat_ip}/vnc.html"
+  description = "VNC web server url"
+}
