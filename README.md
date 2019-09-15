@@ -29,6 +29,26 @@ gcloud compute project-info describe
 
 # consider can use:
 # https://jenkins-x.io/commands/jx_create_terraform/ ?
+jx create terraform gke \
+  --no-tiller \
+  --skip-login \
+  --default-admin-password=admin \
+  --project-id=${PROJECT_ID} \
+  --cluster-name=jenkins-x-lab \
+  --zone=europe-west1-d \
+  --version=2.0.643 \
+  --default-environment-prefix jx \
+  --environment-git-owner test-zz \
+  --docker-registry gcr.io \
+  --docker-registry-org ${PROJECT_ID} \
+  --tekton \
+  --kaniko \
+  --jx-environment='dev' \
+  --gke-machine-type='n1-standard-2' \
+  --gke-preemptible=false
+#initial review suggests not at this time
+
+
 jx create cluster gke \
   --no-tiller \
   --skip-login \
