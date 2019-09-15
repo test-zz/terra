@@ -1,13 +1,14 @@
 #!/bin/sh
 if [ ! -f ~/.vimrc ]; then
-  echo Updating .vimrc
+  echo Updating .vimrc...
   touch ~/.vimrc
   echo 'colo evening' >> ~/.vimrc
   echo 'syntax on' >> ~/.vimrc
   echo 'set backspace=indent,eol,start' >> ~/.vimrc
 fi
 
-if [ ! -f ~/.ssh/$(whoami); then
+if [ ! -f ~/.ssh/$(whoami) ]; then
+  echo Generating ssh key...
   ssh-keygen -t rsa -f ~/.ssh/$(whoami) -C $(whoami) -q -N ""
 fi
 
