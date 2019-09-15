@@ -1,5 +1,12 @@
 #!/bin/sh
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-18-04
+
+whoami
+export TERM=vt101
+export SHELL=/bin/sh
+export HOME=/root
+export USER=root
+
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt install -y xfce4 xfce4-goodies expect
@@ -7,6 +14,8 @@ sudo apt install -y tightvncserver
 
 prog=/usr/bin/vncpasswd
 mypass="qwertyui"
+
+
 /usr/bin/expect <<EOF
 spawn "$prog"
 expect "Password:"
@@ -19,6 +28,14 @@ expect eof
 exit
 EOF
 
+vncserver
+vncserver -kill :1
+mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+touch ~/.vnc/xstartup
+echo '#!/bin/bash' >> ~/.vnc/xstartup
+echo 'xrdb $HOME/.Xresources' >> ~/.vnc/xstartup
+echo 'startxfce4 &' >> ~/.vnc/xstartup
+sudo chmod +x ~/.vnc/xstartup
 vncserver
 
 git clone https://github.com/test-zz/noVNC.git
