@@ -21,25 +21,14 @@ resource "google_compute_instance" "vm_instance" {
   name                    = "terraform-instance"                                                                                                                               
   machine_type            = "n1-standard-1"                                                                                                                                    
   metadata = {                                                                                                                                                                 
-    ssh-keys = "${var.ssh_user}:${file("${var.ssh_filename}")}"  
+    ssh-keys = "${var.ssh_user}:${file("${var.ssh_filename}")}" 
+    startup_script = "${file("${var.script_path}")}"
   }
 
   boot_disk {
     initialize_params {
       image = "ubuntu-os-cloud/ubuntu-1804-bionic-v20190813a"
     }
-  }
-
-  provisioner "file" {                                                                                                                                                         
-    source      = var.script_path                                                                                                                                              
-    destination = "/tmp/metadata_startup_script.sh"                                                                                                                            
-  }                                                                                                                                                                            
-                                                                                                                                                                               
-  provisioner "remote-exec" {                                                                                                                                                  
-    inline = [                                                                                                                                                                 
-      "/tmp/metadata_startup_script.sh",                                                                                                                                       
-      "echo end of remote-exec",                                                                                                                                               
-    ]                                                                                                                                                                          
   } 
 
   network_interface {
